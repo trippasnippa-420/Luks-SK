@@ -1,7 +1,7 @@
 CC = g++
-LIBRARIES = -lyubikey -lykpers-1
-OPTS = -std=c++20 -Wall -g
+LIBRARIES = -lykpers-1 -lyubikey -lusb-1.0 -pthread
+OPTS = -static -std=c++20 -Wall -g
 
 
 thething:
-	$(CC) $(OPTS) main.cpp $(LIBRARIES) -o ok-luks
+	$(CC) $(OPTS) main.cpp -o ok-luks $(LIBRARIES)
