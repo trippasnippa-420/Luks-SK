@@ -20,7 +20,8 @@ int main()
 	onlykey = yk_open_key_vid_pid(0x1d50, pid, sizeof(pid), 0);
 
 	if (!onlykey) {
-		std::cout << "errrroiorr: " << 
+		std::cout << yk_strerror(yk_errno) << std::endl;
+		return 1;
 	}
 
 	yk_challenge_response(onlykey, SLOT_CHAL_HMAC1, 1, 64, challenge, sizeof(buffer), buffer);
